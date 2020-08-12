@@ -1,4 +1,4 @@
-# mf-angular-app
+# MF Search Engine
 This project is created to learn Angular
 
 # Backend 
@@ -12,7 +12,7 @@ Specifc MF detail by Id | https://api.mfapi.in/mf/100915
 
 
 # Bootstrap and JQuery in angular.json
-
+```
 "styles": [
   "src/styles.css",
   "node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -21,3 +21,4 @@ Specifc MF detail by Id | https://api.mfapi.in/mf/100915
   "node_modules/jquery/dist/jquery.min.js",
   "node_modules/bootstrap/dist/js/bootstrap.min.js"
 ]
+```
