@@ -1,10 +1,13 @@
 # MF Search Engine
 This project is created to learn Angular
 
+# Deployed on
+https://mf-search.herokuapp.com
+
 # Backend 
 https://www.mfapi.in (Free Mutual Funds api)
 
-# API list
+## API list
 Scenario|API
 --|--
 Search MF by name | https://api.mfapi.in/mf/search?q=sbi
