@@ -1,0 +1,15 @@
+<div>
+  <div>
+    Search Mutual Fund
+  </div>
+  <div>
+    <form (ngSubmit)="submit()">
+      <div class="form-group">
+        <input class="form-control" type="text" id="searchTerm" required [(ngModel)]="q" name="searchTerm" ng-required="true" />
+      </div>
+      <div>
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+</div>

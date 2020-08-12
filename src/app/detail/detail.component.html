@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>MF Detail</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped" *ngIf="mfDetail">
+      <tbody>
+      <tr>
+        <td>Fund House</td><td>{{mfDetail.meta.fund_house}}</td>
+      </tr>
+      <tr>
+        <td>Scheme Type</td><td>{{mfDetail.meta.scheme_type}}</td>
+      </tr>
+      <tr>
+        <td>Schema Category</td><td>{{mfDetail.meta.scheme_category}}</td>
+      </tr>
+      <tr>
+        <td>Schema Code</td><td>{{mfDetail.meta.scheme_code}}</td>
+      </tr>
+      <tr>
+        <td>Schema Name</td><td>{{mfDetail.meta.scheme_name}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

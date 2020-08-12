@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>MF Search Result</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>
+          Scheme Id
+        </th>
+        <th>
+          Scheme Code
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let mf of mfList | async">
+        <td>
+          {{mf.schemeCode}}
+        </td>
+        <td>
+          {{mf.schemeName}}
+        </td>
+        <td>
+          <button class="btn btn-info" style="margin-left: 10px" (click)="showDetails(mf.schemeCode)">Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
