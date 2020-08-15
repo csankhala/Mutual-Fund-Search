@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {MfService} from "../mf.service";
-import {Observable} from "rxjs";
-import {MfList} from "../model/mf-list";
-import {Router} from "@angular/router";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -11,15 +7,14 @@ import {Router} from "@angular/router";
 })
 export class SearchComponent implements OnInit {
 
-  q: string;
+  @Output() queryEvent = new EventEmitter<string>();
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  submit(): void {
-    this.router.navigate(['list', this.q]);
-    this.q = null;
+  submitQuery(q: string) {
+    this.queryEvent.emit(q);
   }
 }

@@ -1,19 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {SearchComponent} from "./search/search.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {ListComponent} from "./list/list.component";
-import {DetailComponent} from "./detail/detail.component";
 
 
 const routes: Routes = [
-  {path:'', redirectTo:'list', pathMatch:'full'},
-  {path:'list', component:ListComponent},
-  {path:'list/:q', component:ListComponent},
-  {path:'detail/:schemeCode', component:DetailComponent},
+  {path:'', redirectTo:'search', pathMatch:'full'},
+  {path:'search', component:ListComponent, runGuardsAndResolvers: "always"},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,  {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

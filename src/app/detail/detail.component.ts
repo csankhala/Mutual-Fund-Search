@@ -1,8 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {MfService} from "../mf.service";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MfDetail} from "../model/mf-detail";
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-detail',
@@ -11,17 +8,15 @@ import {Location} from '@angular/common';
 })
 export class DetailComponent implements OnInit {
 
-  mfDetail: MfDetail;
+  @Input() mfDetail: MfDetail;
+  @Output() backToListEvent = new EventEmitter();
 
-  constructor(private route: ActivatedRoute,
-              private mfService: MfService,
-              private location: Location) { }
+  constructor() { }
 
   ngOnInit() {
-    let schemeCode = this.route.snapshot.params['schemeCode'];
-    this.mfService.detail(schemeCode).subscribe(
-      result=> this.mfDetail = result,
-      error => console.error(error)
-    );
+  }
+
+  backToList() {
+    this.backToListEvent.emit('dummy');
   }
 }

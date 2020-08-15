@@ -1,32 +1,40 @@
-<div class="panel panel-primary">
+<app-search (queryEvent)="list($event)"></app-search>
+
+<div class="panel panel-primary" *ngIf="searchTerm">
   <div class="panel-heading">
-    <h2>MF Search Result</h2>
+    <h5>Search results for "{{searchTerm}}"</h5>
   </div>
   <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>
-          Scheme Id
-        </th>
-        <th>
-          Scheme Code
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let mf of mfList | async">
-        <td>
-          {{mf.schemeCode}}
-        </td>
-        <td>
-          {{mf.schemeName}}
-        </td>
-        <td>
-          <button class="btn btn-info" style="margin-left: 10px" (click)="showDetails(mf.schemeCode)">Details</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+    <div *ngIf="(mfList | async)?.length>0">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>
+            Scheme Id
+          </th>
+          <th>
+            Scheme Code
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let mf of mfList | async">
+          <td>
+            {{mf.schemeCode}}
+          </td>
+          <td>
+            {{mf.schemeName}}
+          </td>
+          <td>
+            <button class="btn btn-info" style="margin-left: 10px" (click)="showDetails(mf.schemeCode)">Details</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="(mfList | async)?.length==0" class="card card-body">
+      <h5>No search results found</h5>
+      Try other keyword to search!
+    </div>
   </div>
 </div>

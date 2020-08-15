@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MF Search Engine';
+  viewDetailEvent: Event;
+  enableList: boolean = true;
+  viewDetailEventCalled(event: Event) {
+    this.viewDetailEvent = event;
+    this.enableList = false;
+  }
+
+  toggleListView($event: any) {
+    this.enableList = !this.enableList;
+  }
 }

@@ -1,9 +1,9 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary" *ngIf="mfDetail">
   <div class="panel-heading">
     <h2>MF Detail</h2>
   </div>
   <div class="panel-body">
-    <table class="table table-striped" *ngIf="mfDetail">
+    <table class="table table-striped">
       <tbody>
       <tr>
         <td>Fund House</td><td>{{mfDetail.meta.fund_house}}</td>
@@ -22,5 +22,8 @@
       </tr>
       </tbody>
     </table>
+  </div>
+  <div align="center">
+    <button (click)="backToList()" class="btn btn-info">Back to Search</button>
   </div>
 </div>

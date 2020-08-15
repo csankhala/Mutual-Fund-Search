@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Observable} from "rxjs";
 import {MfList} from "../model/mf-list";
 import {MfService} from "../mf.service";
@@ -11,17 +11,28 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ListComponent implements OnInit {
 
-  q: string;
   mfList: Observable<MfList[]>;
+  searchTerm: string;
+  enable: boolean = true;
+  @Output() showDetailEvent= new EventEmitter();
 
-  constructor(private mfService: MfService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private mfService: MfService) { }
 
   ngOnInit() {
-    this.q = this.route.snapshot.params['q'];
-    this.mfList = this.mfService.search(this.q);
   }
 
   showDetails(schemeCode: number) {
-    this.router.navigate(['detail', schemeCode]);
+    this.mfService.detail(schemeCode).subscribe(
+      result=> {
+        this.showDetailEvent.emit(result);
+        this.enable = false;
+      },
+      error => console.error(error)
+    );
+  }
+
+  list(searchTerm: string) {
+    this.mfList = this.mfService.search(searchTerm);
+    this.searchTerm = searchTerm;
   }
 }
