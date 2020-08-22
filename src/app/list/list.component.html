@@ -1,10 +1,8 @@
-<app-search (queryEvent)="list($event)"></app-search>
-
-<div class="panel panel-primary" *ngIf="searchTerm">
-  <div class="panel-heading">
+<div *ngIf="searchTerm">
+  <div>
     <h5>Search results for "{{searchTerm}}"</h5>
   </div>
-  <div class="panel-body">
+  <div class="card card-body">
     <div *ngIf="(mfList | async)?.length>0">
       <table class="table table-striped">
         <thead>
@@ -32,7 +30,7 @@
         </tbody>
       </table>
     </div>
-    <div *ngIf="(mfList | async)?.length==0" class="card card-body">
+    <div *ngIf="(mfList | async)?.length==0">
       <h5>No search results found</h5>
       Try other keyword to search!
     </div>

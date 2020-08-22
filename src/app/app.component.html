@@ -1,14 +1,28 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <ul class="navbar-nav">
-    <a href="/" class="btn btn-light">Home</a>
-  </ul>
-</nav>
-<div class="container">
-  <br>
-  <div class="card">
-    <div class="card-body">
-      <app-list *ngIf="enableList" (showDetailEvent)="viewDetailEventCalled($event)"></app-list>
-      <app-detail *ngIf="!enableList" [mfDetail]="viewDetailEvent" (backToListEvent)="toggleListView($event)"></app-detail>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 card">
+      <div class="box">
+        <a href="/" class="btn btn-light"><h4>Home</h4></a>
+      </div>
+    </div>
+    <div class="col-md-10 container">
+      <div>
+        <app-search (queryEvent)="searchEvent($event)"></app-search>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <app-quick-search (queryEvent)="searchEvent($event)"></app-quick-search>
+    </div>
+    <div class="col-md-10 container">
+        <div *ngIf="query">
+          <div>
+            <app-list *ngIf="enableList" [searchTerm]="query" (showDetailEvent)="viewDetailEventCalled($event)"></app-list>
+            <app-detail *ngIf="!enableList" [mfDetail]="viewDetailEvent" (backToListEvent)="toggleListView($event)"></app-detail>
+          </div>
+        </div>
+      <div class="container card card-body" *ngIf="!query">Search Result will appear here</div>
     </div>
   </div>
 </div>

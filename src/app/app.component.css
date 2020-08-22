@@ -1,0 +1,10 @@
+.box {
+  font-style: oblique;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}

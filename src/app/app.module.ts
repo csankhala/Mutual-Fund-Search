@@ -8,13 +8,15 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
+import { QuickSearchComponent } from './quick-search/quick-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     ListComponent,
-    DetailComponent
+    DetailComponent,
+    QuickSearchComponent
   ],
   imports: [
     BrowserModule,
