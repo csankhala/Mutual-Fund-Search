@@ -1,0 +1,10 @@
+<h5>Quick Search</h5>
+<div class="card-body">
+  <nav>
+    <ul *ngFor="let mf of mfHouses">
+      <li>
+        <a (click)="submitQuery(mf)" class="btn btn-light">{{mf}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>
