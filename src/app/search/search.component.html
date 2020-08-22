@@ -7,7 +7,8 @@
       <tr>
         <td width="100%">
           <div class="form-group">
-            <input class="form-control" type="text" id="searchTerm" name="searchTerm" ng-required="true" #searchTerm (keydown.enter)="submitQuery(searchTerm.value)"/>
+            <input autofocus placeholder="Enter query here" class="form-control" type="text" id="searchTerm" name="searchTerm" #searchTerm (keydown.enter)="submitQuery(searchTerm.value)"/>
+            {{searchTerm.focus()}}
           </div>
         </td>
         <td>
