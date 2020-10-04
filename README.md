@@ -1,5 +1,5 @@
 # MF Search Engine
-This project is created to learn Angular
+This project is created to learn Angular.
 
 # Deployed on
 https://mf-search.herokuapp.com
