@@ -7,16 +7,34 @@
       <tr>
         <td width="100%">
           <div class="form-group">
-            <input autofocus placeholder="Enter query here" class="form-control" type="text" id="searchTerm" name="searchTerm" #searchTerm (keydown.enter)="submitQuery(searchTerm.value)"/>
-            {{searchTerm.focus()}}
+            <form>
+              <mat-form-field class="container">
+                <input autofocus placeholder="Enter query here"
+                       class="form-control" type="text" id="searchTerm" name="searchTerm"
+                       #searchTerm (keydown.enter)="submitQuery(searchTerm.value)"
+                        matInput
+                       [formControl]="input"
+                       [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let mf of mfList | async" [value]="mf.schemeName">
+                    {{mf.schemeName}}
+                  </mat-option>
+                </mat-autocomplete>
+
+              </mat-form-field>
+            </form>
+            <!--                {{searchTerm.focus()}}-->
           </div>
         </td>
         <td>
           <div class="form-group">
-            <button type="submit" (click)="submitQuery(searchTerm.value)" class="btn btn-info">Search</button>
+            <button type="submit" (click)="submitQuery(searchTerm.value)" class="btn btn-info">
+              Search
+            </button>
           </div>
         </td>
       </tr>
     </table>
+
   </div>
 </div>
