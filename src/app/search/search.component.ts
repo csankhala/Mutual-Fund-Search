@@ -12,6 +12,11 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.input.valueChanges.pipe(debounceTime(500), startWith('')).subscribe(
+      term=>  {
+          this.mfList = this.mfService.search(term);
+      }
+    );
   }
 
   submitQuery(q: string) {
