@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { QuickSearchComponent } from './quick-search/quick-search.component';
+import {BlockUIModule} from "ng-block-ui";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QuickSearchComponent } from './quick-search/quick-search.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BlockUIModule
   ],
   providers: [],
   bootstrap: [AppComponent]
