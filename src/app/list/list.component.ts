@@ -10,6 +10,7 @@ import {
 import {Observable} from "rxjs";
 import {MfList} from "../model/mf-list";
 import {MfService} from "../mf.service";
+import {BlockUI, NgBlockUI} from "ng-block-ui";
 
 @Component({
   selector: 'app-list',
@@ -22,6 +23,7 @@ export class ListComponent implements OnInit, OnChanges {
   @Input() searchTerm: string;
   enable: boolean = true;
   @Output() showDetailEvent= new EventEmitter();
+  @BlockUI() blockUI: NgBlockUI;
 
   constructor(private mfService: MfService) { }
 
@@ -29,10 +31,12 @@ export class ListComponent implements OnInit, OnChanges {
   }
 
   showDetails(schemeCode: number) {
+    this.blockUI.start();
     this.mfService.detail(schemeCode).subscribe(
       result=> {
         this.showDetailEvent.emit(result);
         this.enable = false;
+        this.blockUI.stop();
       },
       error => console.error(error)
     );

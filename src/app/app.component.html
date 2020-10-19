@@ -15,6 +15,7 @@
     <div class="col-md-2">
       <app-quick-search (queryEvent)="searchEvent($event)"></app-quick-search>
     </div>
+    <block-ui>
     <div class="col-md-10 container">
         <div *ngIf="query">
           <div>
@@ -24,6 +25,7 @@
         </div>
       <div class="container card card-body" *ngIf="!query">Search Result will appear here</div>
     </div>
+    </block-ui>
   </div>
 </div>
 
