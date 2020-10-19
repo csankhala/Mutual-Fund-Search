@@ -9,6 +9,9 @@ import {HttpClientModule} from "@angular/common/http";
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { QuickSearchComponent } from './quick-search/quick-search.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatInputModule} from "@angular/material/input";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { QuickSearchComponent } from './quick-search/quick-search.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
