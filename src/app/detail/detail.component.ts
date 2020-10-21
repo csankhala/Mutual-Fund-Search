@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MfDetail} from "../model/mf-detail";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-detail',
@@ -11,7 +12,7 @@ export class DetailComponent implements OnInit {
   @Input() mfDetail: MfDetail;
   @Output() backToListEvent = new EventEmitter();
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
