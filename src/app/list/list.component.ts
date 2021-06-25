@@ -10,6 +10,8 @@ import {
 import {Observable} from "rxjs";
 import {MfList} from "../model/mf-list";
 import {MfService} from "../mf.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {DetailComponent} from "../detail/detail.component";
 
 @Component({
   selector: 'app-list',
@@ -23,7 +25,7 @@ export class ListComponent implements OnInit, OnChanges {
   enable: boolean = true;
   @Output() showDetailEvent= new EventEmitter();
 
-  constructor(private mfService: MfService) { }
+  constructor(private mfService: MfService, private modalService: NgbModal) { }
 
   ngOnInit() {
   }
@@ -31,11 +33,17 @@ export class ListComponent implements OnInit, OnChanges {
   showDetails(schemeCode: number) {
     this.mfService.detail(schemeCode).subscribe(
       result=> {
-        this.showDetailEvent.emit(result);
-        this.enable = false;
+        // this.showDetailEvent.emit(result);
+        // this.enable = false;
+        this.open(result);
       },
       error => console.error(error)
     );
+  }
+
+  open(result) {
+    const modalRef = this.modalService.open(DetailComponent);
+    modalRef.componentInstance.mfDetail = result;
   }
 
   ngOnChanges(changes: SimpleChanges) {
