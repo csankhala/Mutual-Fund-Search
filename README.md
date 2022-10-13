@@ -21,7 +21,7 @@ First install it in project node_module
 npm install bootstrap jquery --save
 ```
 
-Import in project
+Add below style and scripts declaration
 ```
 "styles": [
   "src/styles.css",
