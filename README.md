@@ -32,3 +32,6 @@ Import in project
   "node_modules/bootstrap/dist/js/bootstrap.min.js"
 ]
 ```
+
+# Developer
+Chetan Sankhala
