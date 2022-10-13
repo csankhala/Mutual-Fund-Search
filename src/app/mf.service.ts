@@ -18,4 +18,9 @@ export class MfService {
   detail(schemeCode: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${schemeCode}`);
   }
+
+  detail(): Observable<any> {
+      return this.http.get(`${this.baseUrl}`);
+    }
+
 }
