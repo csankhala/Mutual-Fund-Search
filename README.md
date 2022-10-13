@@ -16,7 +16,7 @@ Specifc MF detail by Id | https://api.mfapi.in/mf/100915
 
 # Bootstrap and JQuery in angular.json
 
-First install it in project node_module
+First install bootstrap and jquery in project node_module
 ``` 
 npm install bootstrap jquery --save
 ```
