@@ -2,7 +2,7 @@
 This project is created to learn Angular
 
 # Deployed on
-https://mf-search.herokuapp.com
+[https://mutual-fund-search.onrender.com](https://mutual-fund-search.onrender.com)
 
 # Backend 
 https://www.mfapi.in (Free Mutual Funds api)
